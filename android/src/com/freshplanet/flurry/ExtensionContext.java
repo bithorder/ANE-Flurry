@@ -35,6 +35,7 @@ import com.freshplanet.flurry.functions.analytics.StartSessionFunction;
 import com.freshplanet.flurry.functions.analytics.StartTimedEventFunction;
 import com.freshplanet.flurry.functions.analytics.StopSessionFunction;
 import com.freshplanet.flurry.functions.analytics.StopTimedEventFunction;
+import com.freshplanet.flurry.functions.analytics.SetSessionContinueSeconds;
 
 public class ExtensionContext extends FREContext
 {	
@@ -64,6 +65,7 @@ public class ExtensionContext extends FREContext
 		functionMap.put("setSendEventsOnPause", new SetSendEventsOnPauseFunction());
 		functionMap.put("startTimedEvent", new StartTimedEventFunction());
 		functionMap.put("stopTimedEvent", new StopTimedEventFunction());
+		functionMap.put("setSessionContinueSeconds", new SetSessionContinueSeconds());
 		
 		return functionMap;	
 	}

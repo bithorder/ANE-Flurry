@@ -43,6 +43,7 @@ DEFINE_ANE_FUNCTION(stopTimedEvent);
 DEFINE_ANE_FUNCTION(startSession);
 DEFINE_ANE_FUNCTION(stopSession);
 DEFINE_ANE_FUNCTION(setCrashReportingEnabled);
+DEFINE_ANE_FUNCTION(setSessionContinueSeconds);
 
 
 // ANE setup

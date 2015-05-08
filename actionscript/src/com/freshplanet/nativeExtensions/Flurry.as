@@ -191,6 +191,15 @@ package com.freshplanet.nativeExtensions
 				_context.call("setUserInfo", age, gender);
 			}
 		}
+
+		public function setSessionContinueSeconds(seconds:int):void
+		{
+			if(isSupported)
+			{
+				log("Set session continue seconds = " + seconds);
+				_context.call("setSessionContinueSeconds", seconds);
+			}
+		}
 		
 		public function setSendEventsOnPause(value:Boolean):void
 		{

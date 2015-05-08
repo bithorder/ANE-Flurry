@@ -238,6 +238,17 @@ DEFINE_ANE_FUNCTION(setUserInfo)
     return nil;
 }
 
+DEFINE_ANE_FUNCTION(setSessionContinueSeconds)
+{
+    int32_t timeOut = 0;
+    if (FREGetObjectAsInt32(argv[0], &timeOut) == FRE_OK)
+    {
+        [Flurry setSessionContinueSeconds:timeOut];
+    }
+   
+    return nil;
+}
+
 DEFINE_ANE_FUNCTION(setSendEventsOnPause)
 {
     uint32_t onPause = NO;
@@ -296,7 +307,7 @@ void AirFlurryContextInitializer(void* extData, const uint8_t* ctxType, FREConte
                                 uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet) 
 {    
     // Register the links btwn AS3 and ObjC. (dont forget to modify the nbFuntionsToLink integer if you are adding/removing functions)
-    NSInteger nbFuntionsToLink = 11;
+    NSInteger nbFuntionsToLink = 12;
     *numFunctionsToTest = nbFuntionsToLink;
     
     FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * nbFuntionsToLink);
@@ -349,6 +360,10 @@ void AirFlurryContextInitializer(void* extData, const uint8_t* ctxType, FREConte
     func[10].name = (const uint8_t*) "setCrashReportingEnabled";
     func[10].functionData = NULL;
     func[10].function = &setCrashReportingEnabled;
+    
+    func[11].name = (const uint8_t*) "setSessionContinueSeconds";
+    func[11].functionData = NULL;
+    func[11].function = &setSessionContinueSeconds;
     
 
     AirFlurryCtx = ctx;
